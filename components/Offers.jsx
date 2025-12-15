@@ -1,129 +1,159 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiCheck, FiStar } from 'react-icons/fi';
+import { FiCheck, FiArrowRight, FiBriefcase, FiActivity, FiGlobe } from 'react-icons/fi';
 
 export default function Offers() {
-  const offers = [
+  const engagementModels = [
     {
-      title: 'Paquete Seguridad Total',
-      tagline: 'Protección Completa',
-      price: 'Consultar',
-      featured: true,
+      icon: <FiBriefcase />,
+      title: 'Proyectos Estratégicos',
+      subtitle: 'Implementación Puntual',
+      type: 'Pago Único / Hitos',
+      highlight: false,
+      description: 'Ideal para empresas que necesitan modernizar áreas específicas sin compromisos a largo plazo.',
       features: [
-        'Auditoría de Seguridad Completa',
-        'Implementación de Firewall de Nueva Generación',
-        'Endpoint Protection para todos los dispositivos',
-        'Backup Automatizado con Veeam',
-        'Plan de Recuperación ante Desastres',
-        'Monitoreo 24/7',
-        'Soporte Técnico Prioritario'
+        'Diseño y Desarrollo Web / App',
+        'Auditorías de Ciberseguridad & SEO',
+        'Migraciones a Cloud (AWS/Azure)',
+        'Implementación de ERP (Odoo/QuickBooks)',
+        'Entrega llave en mano con garantía'
       ]
     },
     {
-      title: 'Migración a la Nube',
-      tagline: 'Moderniza tu Infraestructura',
-      price: 'Desde $999',
-      featured: false,
+      icon: <FiActivity />,
+      title: 'Servicios Gestionados',
+      subtitle: 'Soporte Continuo & Mantenimiento',
+      type: 'Cuota Mensual (Retainer)',
+      highlight: true,
+      description: 'Tu departamento de TI externalizado. Garantizamos la continuidad operativa de tu negocio.',
       features: [
-        'Evaluación de Infraestructura Actual',
-        'Plan de Migración Personalizado',
-        'Migración a Azure o AWS',
-        'Configuración de Microsoft 365',
-        'Capacitación del Personal',
-        'Soporte Post-Migración (3 meses)'
+        'Mantenimiento Preventivo 24/7',
+        'Gestión de Backups y Recuperación',
+        'Soporte a Usuarios y Helpdesk',
+        'Monitoreo de Infraestructura y Redes',
+        'Informes Mensuales de KPI y Estado'
       ]
     },
     {
-      title: 'Outsourcing TI Empresarial',
-      tagline: 'Tu Departamento de TI Dedicado',
-      price: 'Mensual',
-      featured: false,
+      icon: <FiGlobe />,
+      title: 'Consultoría Enterprise',
+      subtitle: 'Transformación Global',
+      type: 'A Medida / Híbrido',
+      highlight: false,
+      description: 'Para organizaciones que buscan escalar operaciones globalmente con tecnología de punta.',
       features: [
-        'Soporte Técnico Remoto y On-Site',
-        'Gestión de Servidores y Redes',
-        'Mantenimiento Preventivo',
-        'Gestión de Licencias y Software',
-        'Reportes Mensuales de Performance',
-        'Asesoría Tecnológica Estratégica'
+        'Staff Augmentation (Talento TI Dedicado)',
+        'Arquitectura de Datos y BI Avanzado',
+        'Estrategia de Expansión Internacional',
+        'Consultoría C-Level (CTO fraccional)',
+        'SLA (Acuerdos de Nivel de Servicio) Personalizados'
       ]
     }
   ];
 
   return (
-    <section id="ofertas" className="py-20 px-4 bg-gradient-to-b from-transparent via-dark-200/30 to-transparent">
-      <div className="container mx-auto">
+    <section id="ofertas" className="py-24 px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h2 className="section-title text-center">Paquetes y Ofertas Especiales</h2>
-          <p className="section-subtitle text-center">
-            Soluciones integrales diseñadas para maximizar el valor de tu inversión
+          <h2 className="section-title">Modelos de Colaboración</h2>
+          <p className="section-subtitle max-w-2xl mx-auto">
+            Entendemos que cada empresa es única. Ofrecemos flexibilidad contractual 
+            para adaptarnos a tus necesidades de flujo de caja y objetivos operativos.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {offers.map((offer, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {engagementModels.map((model, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`rounded-2xl p-8 relative ${
-                offer.featured
-                  ? 'bg-gradient-to-br from-primary/20 to-blue-500/20 border-2 border-primary shadow-lg shadow-primary/30'
-                  : 'glass-hover'
+              className={`relative rounded-2xl p-8 flex flex-col h-full transition-all duration-300 ${
+                model.highlight
+                  ? 'bg-gradient-to-b from-white/10 to-transparent border border-primary/50 shadow-2xl shadow-primary/10'
+                  : 'bg-dark-100 border border-white/5 hover:border-white/20'
               }`}
             >
-              {offer.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-blue-500 px-4 py-1 rounded-full flex items-center gap-1">
-                  <FiStar className="text-sm" />
-                  <span className="text-sm font-bold">MÁS POPULAR</span>
+              {model.highlight && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                  Más Solicitado
                 </div>
               )}
 
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-display font-bold mb-2">{offer.title}</h3>
-                <p className="text-primary text-sm mb-4">{offer.tagline}</p>
-                <div className="text-4xl font-bold text-gradient">{offer.price}</div>
+              {/* Header Card */}
+              <div className="mb-6">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4 ${
+                  model.highlight ? 'bg-primary text-white' : 'bg-white/5 text-gray-300'
+                }`}>
+                  {model.icon}
+                </div>
+                <h3 className="text-2xl font-display font-bold text-white mb-1">{model.title}</h3>
+                <p className="text-sm text-primary font-medium mb-4">{model.subtitle}</p>
+                
+                {/* Badge de tipo de pago */}
+                <div className="inline-block bg-white/5 rounded-lg px-3 py-1 text-xs text-gray-400 border border-white/5">
+                  {model.type}
+                </div>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {offer.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm">
-                    <FiCheck className="text-primary mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">{feature}</span>
+              <p className="text-gray-400 text-sm leading-relaxed mb-8 border-b border-white/5 pb-8">
+                {model.description}
+              </p>
+
+              {/* Features */}
+              <ul className="space-y-4 mb-8 flex-grow">
+                {model.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-sm group/item">
+                    <FiCheck className={`mt-0.5 flex-shrink-0 ${
+                      model.highlight ? 'text-primary' : 'text-gray-500 group-hover/item:text-primary transition-colors'
+                    }`} />
+                    <span className="text-gray-300 group-hover/item:text-white transition-colors">{feature}</span>
                   </li>
                 ))}
               </ul>
 
+              {/* CTA Button */}
               <a
                 href="#contacto"
-                className={`block text-center py-3 rounded-lg font-semibold transition-all duration-300 ${
-                  offer.featured
-                    ? 'btn-primary'
-                    : 'glass-hover'
+                className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 ${
+                  model.highlight
+                    ? 'btn-primary shadow-lg shadow-primary/25 hover:shadow-primary/40'
+                    : 'bg-white/5 text-white hover:bg-white/10 hover:scale-[1.02]'
                 }`}
               >
-                Solicitar Información
+                Solicitar Cotización
               </a>
             </motion.div>
           ))}
         </div>
 
+        {/* Trust Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 text-center glass rounded-xl p-6"
+          className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left opacity-70"
         >
-          <p className="text-lg text-gray-300">
-            💡 ¿Necesitas una solución personalizada? <a href="#contacto" className="text-primary font-bold hover:underline">Contáctanos</a> para crear un paquete a medida.
+          <div className="flex -space-x-4">
+            {[1,2,3,4].map((i) => (
+              <div key={i} className="w-10 h-10 rounded-full bg-gray-600 border-2 border-dark-200" /> 
+            ))}
+          </div>
+          <p className="text-sm text-gray-400 max-w-md">
+            Únete a las empresas que han optimizado sus costos TI y mejorado su eficiencia operativa con nosotros.
           </p>
         </motion.div>
       </div>

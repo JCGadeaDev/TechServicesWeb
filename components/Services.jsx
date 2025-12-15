@@ -1,88 +1,101 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiShield, FiCloud, FiServer, FiCode, FiUsers } from 'react-icons/fi';
+// Importamos iconos más específicos para Data, Cloud y Web
+import { FiShield, FiCloud, FiDatabase, FiCode, FiGlobe, FiMonitor, FiArrowRight } from 'react-icons/fi';
 
 export default function Services() {
   const services = [
     {
-      icon: <FiShield />,
-      title: 'Ciberseguridad y Resiliencia Digital',
-      emoji: '🛡️',
-      description: 'Protección proactiva y recuperación rápida para la continuidad de tu negocio.',
+      icon: <FiMonitor />,
+      title: 'Desarrollo Web & Experiencias Digitales',
+      description: 'Creación de plataformas web de alto impacto, diseñadas para la conversión y optimizadas para velocidad.',
       features: [
-        'Seguridad Perimetral y Endpoint Protection',
-        'Pruebas de Penetración y Gestión de Vulnerabilidades',
-        'Planes de Continuidad del Negocio (BC/DR)',
-        'Backup con Veeam, Cove Data Protection, UrBackup'
+        'Sitios Web Corporativos y E-commerce (Next.js)',
+        'Diseño UI/UX centrado en el usuario global',
+        'Webs Progresivas (PWA) y Mobile-First',
+        'Integración de pasarelas de pago internacionales'
+      ]
+    },
+    {
+      icon: <FiGlobe />,
+      title: 'Posicionamiento SEO & Estrategia Global',
+      description: 'Hacemos que tu marca sea visible en los mercados internacionales mediante estrategias de búsqueda orgánica técnica.',
+      features: [
+        'Auditoría SEO Técnica y Semántica',
+        'SEO Internacional (Multi-idioma/Multi-región)',
+        'Optimización de Core Web Vitals',
+        'Estrategias de Contenido y Linkbuilding'
       ]
     },
     {
       icon: <FiCloud />,
-      title: 'Cloud Computing y Modernización',
-      emoji: '☁️',
-      description: 'Eficiencia, escalabilidad global y reducción de costos en la nube.',
+      title: 'Cloud Solutions & Hosting Gestionado',
+      description: 'Infraestructura en la nube robusta que garantiza que tu negocio opere 24/7 con latencia mínima a nivel mundial.',
       features: [
-        'Migraciones y gestión de Microsoft 365, Azure, AWS',
-        'Infraestructura como Servicio (IaaS)',
-        'Escritorios Virtuales (VDI)',
-        'Optimización de plataformas cloud'
+        'Arquitectura Cloud (AWS, Azure, Google Cloud)',
+        'Hosting de Alto Rendimiento y Servidores VPS',
+        'Gestión de Dominios y DNS Globales',
+        'Migración de sistemas Legacy a la Nube'
       ]
     },
     {
-      icon: <FiServer />,
-      title: 'Infraestructura y Servicios Gestionados',
-      emoji: '🌐',
-      description: 'Tu departamento de TI dedicado para operaciones óptimas 24/7.',
+      icon: <FiDatabase />,
+      title: 'Data Analytics & Business Intelligence',
+      description: 'Transformamos datos brutos en ventajas competitivas. Toma decisiones informadas con análisis en tiempo real.',
       features: [
-        'Outsourcing de TI y Managed Services',
-        'Diseño de Redes LAN/WAN y VPNs',
-        'Virtualización y VoIP empresarial',
-        'Mantenimiento de Hardware y Software'
+        'Dashboards interactivos (Power BI, Tableau)',
+        'Ingeniería de Datos y Procesos ETL',
+        'Análisis predictivo para tendencias de mercado',
+        'Auditoría y limpieza de bases de datos'
       ]
     },
     {
       icon: <FiCode />,
-      title: 'Desarrollo de Software y Estrategia Digital',
-      emoji: '📈',
-      description: 'Herramientas digitales que automatizan y posicionan tu marca.',
+      title: 'Ingeniería de Software & Integraciones',
+      description: 'Desarrollo de software a medida y APIs que automatizan flujos de trabajo complejos y conectan tus herramientas.',
       features: [
-        'Desarrollo Web y Aplicaciones a Medida',
-        'Gestión de CRMs, ERP (Odoo, QuickBooks)',
-        'Marketing Digital y Diseño Web',
-        'Automatización de procesos empresariales'
+        'Desarrollo de SaaS y Microservicios',
+        'Integración de ERPs y CRMs (Odoo, Salesforce)',
+        'Automatización de procesos (RPA)',
+        'Refactorización y modernización de código'
       ]
     },
     {
-      icon: <FiUsers />,
-      title: 'Consultoría y Talento Especializado',
-      emoji: '🧑‍💻',
-      description: 'Experiencia y talento para guiar tus decisiones tecnológicas.',
+      icon: <FiShield />,
+      title: 'Ciberseguridad & Compliance',
+      description: 'Protección de grado empresarial para tus activos digitales, cumpliendo con estándares internacionales de seguridad.',
       features: [
-        'Consultoría en Transformación Digital',
-        'Capacitación en nuevas tecnologías',
-        'Headhunting de talento TI de alto nivel',
-        'Evaluaciones de madurez tecnológica'
+        'Hacking Ético y Análisis de Vulnerabilidades',
+        'Gestión de Identidades y Accesos (IAM)',
+        'Planes de Recuperación ante Desastres (DRP)',
+        'Seguridad para trabajo remoto y Endpoints'
       ]
     }
   ];
 
   return (
-    <section id="servicios" className="py-20 px-4 bg-gradient-to-b from-transparent via-dark-200/50 to-transparent">
-      <div className="container mx-auto">
+    <section id="servicios" className="py-20 px-4 bg-gradient-to-b from-transparent via-primary/5 to-transparent relative">
+      {/* Background decoration */}
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h2 className="section-title text-center">Nuestros Servicios</h2>
-          <p className="section-subtitle text-center">
-            Portafolio integral de soluciones diseñado para proteger, optimizar y hacer crecer tu negocio
+          <h2 className="section-title inline-block">Ecosistema de Soluciones</h2>
+          <p className="section-subtitle mt-4 max-w-2xl mx-auto">
+            Un portafolio integral diseñado para empresas que buscan escalar globalmente. 
+            Fusionamos <strong>Infraestructura, Datos y Desarrollo</strong> para impulsar tu transformación digital.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -90,22 +103,38 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-hover rounded-xl p-6 group"
+              className="glass-hover rounded-2xl p-8 group border border-white/5 hover:border-primary/40 relative overflow-hidden"
             >
-              <div className="text-5xl mb-4">{service.emoji}</div>
-              <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <div className="text-6xl text-primary rotate-12 transform group-hover:scale-110 transition-transform duration-500">
+                  {service.icon}
+                </div>
+              </div>
+
+              <div className="text-4xl text-primary mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 origin-left">
+                {service.icon}
+              </div>
+              
+              <h3 className="text-xl font-display font-bold mb-4 text-white group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-300 mb-4">{service.description}</p>
               
-              <ul className="space-y-2">
+              <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+                {service.description}
+              </p>
+              
+              <div className="space-y-3 border-t border-white/10 pt-6">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-sm text-gray-400 flex items-start">
-                    <span className="text-primary mr-2">▸</span>
-                    {feature}
-                  </li>
+                  <div key={idx} className="flex items-start gap-3 group/item">
+                    <span className="text-primary mt-1 text-xs group-hover/item:text-white transition-colors">
+                      <FiArrowRight />
+                    </span>
+                    <span className="text-sm text-gray-400 group-hover/item:text-gray-200 transition-colors">
+                      {feature}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
         </div>
