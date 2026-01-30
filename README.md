@@ -6,7 +6,7 @@ Website moderno y profesional para **TechServices Guz PS**, desarrollado con las
 
 ## 🚀 Tecnologías Utilizadas
 
-- **Frontend Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Frontend Framework**: [Next.js 16](https://nextjs.org/) (App Router)
 - **Estilos**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
 - **Iconos**: React Icons
@@ -34,48 +34,6 @@ Website moderno y profesional para **TechServices Guz PS**, desarrollado con las
 - **Glassmorphism**: Efectos de cristal esmerilado en tarjetas y navegación.
 - **Responsive**: Totalmente adaptado a móviles, tablets y escritorio.
 - **Animaciones**: Transiciones suaves al hacer scroll y hover effects interactivos.
-
-## 🛠️ Instalación y Configuración
-
-### 1. Clonar e Instalar Dependencias
-
-```bash
-git clone <url-del-repo>
-cd iridescent-sagan
-npm install
-```
-
-### 2. Configuración de Variables de Entorno
-
-Para que el formulario de contacto funcione, necesitas configurar **Resend**.
-
-1.  Crea una cuenta en [Resend.com](https://resend.com).
-2.  Obtén tu API Key.
-3.  Crea un archivo `.env.local` en la raíz del proyecto y agrega:
-
-```env
-# .env.local
-RESEND_API_KEY=re_tu_api_key_aqui
-EMAIL_FROM=contacto@techservicesguzps.com
-EMAIL_TO=info@techservicesguzps.com
-```
-
-> **Nota**: Si estás en el plan gratuito de Resend, solo puedes enviar correos a la dirección de correo con la que te registraste (a menos que verifiques un dominio).
-
-### 3. Ejecutar en Desarrollo
-
-```bash
-npm run dev
-```
-
-El sitio estará disponible en [http://localhost:3000](http://localhost:3000).
-
-### 4. Construir para Producción
-
-```bash
-npm run build
-npm start
-```
 
 ## 📂 Estructura del Proyecto
 
